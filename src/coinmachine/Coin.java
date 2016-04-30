@@ -1,8 +1,10 @@
+
 package coinmachine;
+import java.util.Observable;
 /**
  * A Coin represents metalic money with a value.
  */
-public class Coin /*TODO implements Comparable<Coin> */ {
+public class Coin implements Comparable<Coin>  {
 	/** value of the coin */
 	private final int value;
 	private final String currency;
@@ -59,11 +61,10 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	 * @param obj an Object to compare to this coin.
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	@Override
-	public boolean equals(Object obj) {
-//TODO Write a correct equals method for Coin.
-//     You can assume that the currency is never null.
-		return this == obj;
+	public boolean equals(Coin obj) {
+		if(!(obj instanceof Coin)) return false;
+		Coin coin = (Coin)obj;
+		return (this.currency.equals(coin.currency) && this.value == coin.value);
 	}
 
 	/**
@@ -72,5 +73,11 @@ public class Coin /*TODO implements Comparable<Coin> */ {
 	@Override
 	public String toString() {
 		return value+"-"+currency;
+	}
+
+	@Override
+	public int compareTo(Coin o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

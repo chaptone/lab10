@@ -61,8 +61,15 @@ public class Demo {
 		
 		CoinMachine machine = new CoinMachine( capacity );
 		Demo demo = new Demo();
+//		MySubject sybject = new MySubject();
+		coinObserverUI CoinObserver = new coinObserverUI();
+		machine.addObserver(CoinObserver);
+		coinMachineUI CoinMachine = new coinMachineUI( machine );
+		machine.addObserver(CoinMachine);
 		//TODO add observers
 		demo.insertDialog(machine);
+		
+		
 	}
 }
 
